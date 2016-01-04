@@ -1,5 +1,6 @@
 for version in `ls versions/*`
 do
+  echo "<---------------------------------------------------->"
   echo "build for $version"
   cat $version
   source $version
