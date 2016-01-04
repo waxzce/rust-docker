@@ -1,5 +1,5 @@
 
-curl -sL $RUST_DL_URL | tar xvz -C /tmp
+curl -sL $RUST_DL_URL | tar xz -C /tmp
 /tmp/rust-*/install.sh
 
 apt-get remove --purge -y curl
