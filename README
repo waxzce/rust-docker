@@ -1,0 +1,8 @@
+This is buunch of scrpts able to generate debian based rust docker images, tagged in each version.
+
+Theses scripts run all the night to generate always up to date rust images there : https://hub.docker.com/r/waxzce/rust/tags/
+
+My own use is CI
+
+
+get some inspiration from https://github.com/schickling/dockerfiles/tree/master/rust
