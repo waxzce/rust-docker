@@ -1,4 +1,4 @@
-This is buunch of scrpts able to generate debian based rust docker images, tagged in each version.
+This is bunch of scripts able to generate ubuntu based rust docker images, tagged in each version.
 
 Theses scripts run all the night to generate always up to date rust images there : https://hub.docker.com/r/waxzce/rust/tags/
 

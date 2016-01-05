@@ -1,5 +1,5 @@
 
-FROM debian:wheezy
+FROM ubuntu:wily
 MAINTAINER Quentin ADAM "quentin.adam@waxzce.org"
 
 # needed by cargo
