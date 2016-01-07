@@ -6,6 +6,6 @@ cp /tmp/rust-*/version /rust_version
 apt-get remove --purge -y curl
 apt-get autoclean
 apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /tmp/* /var/tmp/*
 
 mkdir /source
