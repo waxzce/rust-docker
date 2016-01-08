@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "build Dockerfile"
 
-sed "s;££DATE££;$(date +%D);" template_Dockerfile_ubuntu > Dockerfile_ubuntu
+sed "s;££DATE££;$(date +%D);" template_Dockerfile_ubuntu > Dockerfile
 
-docker build -t waxzce/ubuntu -f Dockerfile_ubuntu
+docker build -t waxzce/ubuntu .
 docker push -f waxzce/ubuntu
 
 sed "s;££DATE££;$(date +%D);" template_Dockerfile > Dockerfile
