@@ -8,5 +8,7 @@ ENV USER root
 RUN echo ££DATE££ > ubuntu_update_date.txt
 RUN apt-get update
 RUN apt-get upgrade -y
+RUN apt-get autoremove -y
+RUN apt-get autoclean -y
 
 CMD ["bash"]
