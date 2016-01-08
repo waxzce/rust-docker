@@ -1,6 +1,11 @@
 #!/bin/bash
 echo "build Dockerfile"
 
+sed "s;££DATE££;$(date +%D);" template_Dockerfile_ubuntu > Dockerfile_ubuntu
+
+docker build -t waxzce/ubuntu -f Dockerfile_ubuntu
+docker push -f waxzce/ubuntu
+
 sed "s;££DATE££;$(date +%D);" template_Dockerfile > Dockerfile
 
 for version in `ls versions/*`
