@@ -4,7 +4,7 @@ echo "build Dockerfile"
 sed "s;££DATE££;$(date +%D);" template_Dockerfile_ubuntu > Dockerfile
 
 docker build -t waxzce/ubuntu .
-docker push -f waxzce/ubuntu
+docker push waxzce/ubuntu
 
 sed "s;££DATE££;$(date +%D);" template_Dockerfile > Dockerfile
 
@@ -20,15 +20,15 @@ do
   chmod +x generated/builder.sh
   docker build --rm=false -t waxzce/rust-$RUST_VERSION .
   echo "push this tag : $RUST_VERSION"
-  docker push -f waxzce/rust-$RUST_VERSION
+  docker push waxzce/rust-$RUST_VERSION
   docker tag waxzce/rust-$RUST_VERSION waxzce/rust:$RUST_VERSION
-  docker push -f waxzce/rust:$RUST_VERSION
+  docker push waxzce/rust:$RUST_VERSION
   export REAL_RUST_VERSION=`docker run waxzce/rust:$RUST_VERSION cat /rust_version | tr " " _ | tr "(" _ | tr ")" _`
   docker tag waxzce/rust:$RUST_VERSION waxzce/rust:specific-$REAL_RUST_VERSION
   echo "push this tag : $REAL_RUST_VERSION"
-  docker push -f waxzce/rust:specific-$REAL_RUST_VERSION
+  docker push waxzce/rust:specific-$REAL_RUST_VERSION
   docker tag waxzce/rust-$RUST_VERSION waxzce/rust-$RUST_VERSION:specific-$REAL_RUST_VERSION
-  docker push -f waxzce/rust-$RUST_VERSION:specific-$REAL_RUST_VERSION
+  docker push waxzce/rust-$RUST_VERSION:specific-$REAL_RUST_VERSION
   if [ -z "$MORE_TAGS" ]
   then
 	   echo "no more tags"
@@ -38,7 +38,7 @@ do
      do
        echo "push this tag : $TAG"
        docker tag waxzce/rust:$RUST_VERSION waxzce/rust:$TAG
-       docker push -f waxzce/rust:$TAG
+       docker push waxzce/rust:$TAG
      done
   fi
   rm generated/builder.sh
