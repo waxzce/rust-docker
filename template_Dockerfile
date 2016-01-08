@@ -5,7 +5,9 @@ MAINTAINER Quentin ADAM "quentin.adam@waxzce.org"
 # needed by cargo
 ENV USER root
 
+RUN echo ££DATE££
 RUN apt-get update
+RUN apt-get upgrade -y
 RUN apt-get install -y curl gdb g++-multilib lib32stdc++6 libssl-dev libncurses5-dev
 
 ADD generated/builder.sh builder.sh
